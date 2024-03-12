@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div  class="form-box">
+        <h1 id="title">Login</h1>
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+        <form id="loginForm" method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+           <div class="input-group">
+            <div class="input-field">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Username" id="username" name="username">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Password"  id="password" name="password">
+           </div> 
+           
+           <div class="btn-field">
+            <button type="submit"  >Login</button>
+        </div> 
+        <div class="btn-field">
+            <p> Don't have an account?  <a href="{% url 'register' %}"> Register</a></p>
+        
+        </form>
+    </div>
+</div>
+    
+</body>
+</html>

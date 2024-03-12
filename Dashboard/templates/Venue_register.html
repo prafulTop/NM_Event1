@@ -1,0 +1,60 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <meta name="view port"
+    content="width=device-width,initial-scale=1.0">
+<title>Venue Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@500&family=Rubik:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/Payment_registerstyle.css' %}"></head>
+    <body>
+        
+        <div class="Event">
+            <header>
+                Venue Registration
+            </header>
+            <form action="{% url 'Venue_register' %}" method="POST">
+                {% csrf_token %}
+            <div class="title">
+               <span> Venue Details</span>
+            </div>
+            <div class="fields">
+                    <div class="input-box">
+                    <label>Event Name:</label>
+                    <input type="text" name="Event_name" placeholder=" enter event name" required/>
+                </div>
+                
+                 <div class="input-box">
+                  <label>Event type :</label>
+                  <input type="text" name="Event_type" placeholder=" enter event type" required/>
+                 </div>
+                
+                <div class="input-box">
+                    <label>Event Address:</label>
+                    <input type="text" name="Event_address" placeholder="enter event address" required/>
+                </div>
+          
+            
+            <div class="button">
+                <button type="reset"  >Delete</button>
+                <button type="submit"  >Submit</button>
+                <button type="submit"  >Next <i class="fa-solid fa-caret-right"></i></button>
+              <a   href="{% url 'home' %}"> <button type="button"  >Home <i class="fa-solid fa-house"></i></button></b1></a>
+             </div>
+            
+
+            </div>
+            </form>
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <meta name="view port"
+    content="width=device-width,initial-scale=1.0">
+<title>Register Employee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@500&family=Rubik:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/Employee_register_style.css' %}">
+</head>
+    <body>
+        <div class="wrapper">
+            <input type="checkbox" id="btn" hidden />
+            <label for="btn" class="menu-btn">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </label> 
+            <nav id="sidebar">
+                <div class="title"> Employee Details</div>
+                <ul class="list-items">
+                    <li>
+                        <a href="{% url 'Employee_register' %}"><i class="fa-solid fa-users"></i> Register Employee </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Salary_register' %}"><i class="fa-solid fa-money-bill-1-wave"></i>Employee Salary</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Report_Employee' %}"><i class=""></i> Employee Details </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Report_Salary' %}"><i class=""></i>  Salary Details</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+       
+        <div class="Customer">
+            <header>
+                Employee Registration
+            </header>
+            <form action="{% url 'Employee_register' %}" method="POST">
+
+
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="success-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+
+
+            
+                {% csrf_token %}
+            <div class="title">
+               <span>Emoylee Personal Details</span>
+            </div>
+             <div class="fields">  
+             
+                <div class="input-box">
+                <label > Employee Name :</label>
+                <input type="text"name="emp_name" placeholder="  enter employee full name "required> 
+            </div>
+            
+                <div class="input-box">
+                <label >  Employee Email : </label>
+                <input type="email"name="emp_email"  placeholder=" enter email"required>
+            </div>
+                <div class="input-box">
+                <label > Employee Contact no. :</label>
+                <input type="text" name="contact_number" placeholder=" enter contact no"required>
+            </div>
+                <div class= "Address">
+                <div class="input-box">
+                <label >Employee Address  :</label>
+               <input type="text" name="address"  placeholder="  employee address "required></input >
+               
+            </div></div>
+            <div class="button">
+                <button type="reset"  >Delete</button>
+                <button type="submit"  >Submit</button>
+                
+                <a   href="{% url 'home' %}"> <button type="button"  >Home <i class="fa-solid fa-house"></i></button></b1></a>
+            </div>
+            
+
+             </div>
+            </form>
+        </div>
+    </body>
+    </html>

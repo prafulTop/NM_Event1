@@ -1,0 +1,74 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <meta name="view port"
+    content="width=device-width,initial-scale=1.0">
+<title>Register Customer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@500&family=Rubik:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/Register_Customer.css' %}">
+</head>
+    <body>
+        <div class=" buttonhome ">
+           
+        <div class="Customer">
+            <header>
+                Customer Registration
+            </header>
+            <form action="{% url 'Register_Customer' %}" method="POST">
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="success-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+          {% csrf_token %}
+            <div class="title">
+               <span>Customer Personal Details</span>
+            </div>
+             <div class="fields">  
+                <div class="input-box">
+                <label > Customer Name :</label>
+                <input type="text" name="customer_name" placeholder="  enter customer full name "required> 
+            </div>
+            <div class= "column">
+                <div class="input-box">
+                <label >  Customer Email : </label>
+                <input type="email" name="customer_email" placeholder="enter customer email" required>
+            </div>
+                <div class="input-box">
+                <label > Customer Contact no. :</label>
+                <input type="text"  name="customer_phone_no"placeholder=" enter customer contact no"required>
+            </div></div>
+                <div class= "Address">
+                <div class="input-box">
+                <label > Customer Address  :</label>
+               <input  type="text" name="customer_address" placeholder="  enter customer Address "required></input >
+               
+            </div></div>
+            <div class="button">
+                <button type="reset"  >Delete</button>
+                <button type="submit"  >Submit</button>
+                <a href="{% url 'Event_register' %}"> <button type="submit"  >Next <i class="fa-solid fa-caret-right"></i></button></a>
+            
+                <a href="{% url 'home' %}"> <button type="button"  >Home <i class="fa-solid fa-house"></i></button></a>
+        </div>
+            
+
+             </div>
+            </form>
+        </div>
+    </body>
+    </html>

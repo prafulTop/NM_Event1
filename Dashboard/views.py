@@ -67,7 +67,7 @@ def Register_Customer(request):
         )
         customer.save()
 
-        messages.success(request, 'Customer registered successfully! asadasda ')
+        messages.success(request, 'Customer registered successfully!  ')
         return redirect('Report_Customer')  # Update 'Register_Customer' to your actual URL name
     return render(request, 'Register_Customer.html')
 

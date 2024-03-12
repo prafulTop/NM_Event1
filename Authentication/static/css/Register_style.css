@@ -20,7 +20,7 @@ width:100%;
     width: 90%;
     max-width: 450px;
     position: absolute;
-    height: 650px;
+    height: 700px;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -97,3 +97,13 @@ form p a{
     color:#555;
 
 }
+.error{
+    color: red;
+   margin-left: 80px;
+   margin-right: 50px;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 10px;
+   
+    animation: .3s linear;
+  }

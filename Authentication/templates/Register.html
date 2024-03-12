@@ -7,7 +7,7 @@
     content="width=device-width,
 initial-scale=1.0">
 <title> Register</title>
-<link rel="stylesheet" href="{% static 'css/Register_style1.css' %}">
+<link rel="stylesheet" href="{% static 'css/Register_style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
     <body>
@@ -15,9 +15,13 @@ initial-scale=1.0">
     <div  class="form-box">
        
         <h1 id="title">Sign in</h1>
-        {% if error %}
-        <div class="error-message">{{ error }}</div>
-        {% endif %}
+        <div class="error">
+            <div>
+               {% if error %}
+               <div class="error-message">{{ error }}</div>
+           {% endif %}</div></div>
+   
+        
         <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
            <div class="input-group">

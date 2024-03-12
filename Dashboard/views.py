@@ -55,7 +55,7 @@ def Register_Customer(request):
 
         # Perform validation if needed
         if not cust_phone_no.isdigit() or len(cust_phone_no) != 10:
-            messages.error(request, 'Customer phone number must be a 10-digit number.')
+            messages.error(request, '   " Customer contact number must be a 10-digit number only !" ')
             return render(request, 'Register_Customer.html') 
         
         # Create and save the Customer
@@ -68,7 +68,7 @@ def Register_Customer(request):
         customer.save()
 
         messages.success(request, 'Customer registered successfully!  ')
-        return redirect('Report_Customer')  # Update 'Register_Customer' to your actual URL name
+        return redirect('Register_Customer')  # Update 'Register_Customer' to your actual URL name
     return render(request, 'Register_Customer.html')
 
 

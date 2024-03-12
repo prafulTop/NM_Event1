@@ -16,24 +16,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@500&family=Rubik:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/Register_Customer.css' %}">
+<link rel="stylesheet" href="{% static 'css/Register_Customer1.css' %}">
 </head>
     <body>
-        <div class=" buttonhome ">
+        
            
         <div class="Customer">
+            
             <header>
                 Customer Registration
             </header>
             <form action="{% url 'Register_Customer' %}" method="POST">
-                {% if error %}
-                <div class="error-message">{{ error }}</div>
-            {% endif %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="success-message">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
+               
           {% csrf_token %}
             <div class="title">
                <span>Customer Personal Details</span>
@@ -52,6 +46,8 @@
                 <label > Customer Contact no. :</label>
                 <input type="text"  name="customer_phone_no"placeholder=" enter customer contact no"required>
             </div></div>
+           
+               
                 <div class= "Address">
                 <div class="input-box">
                 <label > Customer Address  :</label>
@@ -65,9 +61,21 @@
             
                 <a href="{% url 'home' %}"> <button type="button"  >Home <i class="fa-solid fa-house"></i></button></a>
         </div>
-            
-
-             </div>
+    </div>
+             <div class="error">
+             <div>
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+    
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="success-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+        
             </form>
         </div>
     </body>

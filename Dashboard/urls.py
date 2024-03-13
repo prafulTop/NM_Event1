@@ -14,6 +14,9 @@ urlpatterns = [
     path('Report_Customer/',views.Report2,name="Report_Customer"),
     path('Report_Venue/',views.Report3,name="Report_Venue"),
     path('Report_Employee/',views.Report5,name="Report_Employee"),
-    path('Report_Salary/',views.Report6,name="Report_Salary")
+    path('Report_Salary/',views.Report6,name="Report_Salary"),
+    path('record/<int:pk>', views.Customer_Record, name="record"),
+    path('Delete_record/<int:pk>', views.Delete_record, name="Delete_record")
+
     # path('Employee_register/',views.Employee,name="Employee_register")
 ]

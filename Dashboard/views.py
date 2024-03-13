@@ -215,3 +215,15 @@ def Report6(request):
     records6 = Salary.objects.all()
     return render(request,'Report_Salary.html',{"records6":records6})
 
+def Customer_Record(request,pk):
+    Customer_Record= Customer.objects.get(id=pk)
+    return render(request,'record.html',{"Customer_Record":Customer_Record})
+
+def Delete_record(request,pk):
+    delete_it= Customer.objects.get(id=pk)
+    delete_it.delete()
+    if delete :
+    messages.success(request, ' DeleteCustomer registered successfully!  ')
+    return redirect('Report_Customer') 
+    
+

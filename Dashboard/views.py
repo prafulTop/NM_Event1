@@ -25,7 +25,7 @@ def Event_register(request):
 
         # Perform validation if needed
         if Event.objects.filter(date=date, time=time, location=location).exists():
-            messages.error(request, 'An event with the same time, date, and location already exists.')
+            messages.error(request, ' Oops! An event with the same time, date, and location already exists.')
             return render(request, 'Event_register.html', {})
         # Create and save the event
         event = Event(
@@ -39,7 +39,7 @@ def Event_register(request):
         event.save()
         
         
-        messages.success(request, 'Event register successfully!')
+        messages.success(request, ' Success!  Event register successfully!')
         return redirect('Report_tabel1')  # Update 'event_register' to your actual URL name
     return render(request,'Event_register.html', {})
 
@@ -53,11 +53,11 @@ def Register_Customer(request):
 
         # Perform validation if needed
         if not cust_phone_no.isdigit() or len(cust_phone_no) != 10:
-            messages.error(request, '   " Customer contact number must be a 10-digit number only !" ')
+            messages.error(request, '   "  Oops! Customer contact number must be a 10-digit number only !" ')
             return render(request, 'Register_Customer.html') 
         
         if Customer.objects.filter(cust_name=cust_name).exists():
-            messages.error(request, 'Customer with this name already exists. Choose a different name.')
+            messages.error(request, ' Oops! Customer with this name already exists. Choose a different name.')
             return render(request, 'Register_Customer.html')
         
         # Create and save the Customer
@@ -69,7 +69,7 @@ def Register_Customer(request):
         )
         customer.save()
 
-        messages.success(request, 'Customer registered successfully!  ')
+        messages.success(request, ' Success! Customer registered successfully!  ')
         return redirect('Report_Customer')  # Update 'Register_Customer' to your actual URL name
     return render(request, 'Register_Customer.html')
 
@@ -91,7 +91,7 @@ def Venue_register(request):
         )
         venue.save()
 
-        messages.success(request, 'Venue registered successfully!')
+        messages.success(request, ' Success! Venue registered successfully!')
 
         return redirect('Report_Venue')  # Redirect to the same page after form submission
 
@@ -115,7 +115,7 @@ def Payment_register(request):
             status=payment_pending
         )
         payment.save()
-        messages.success(request, 'Payment registered successfully!')
+        messages.success(request, 'Success! Payment registered successfully!')
 
 
         return redirect('Report_Payment')
@@ -132,12 +132,12 @@ def Employee_register(request):
         address = request.POST.get('address')
 
         if not contact_number.isdigit() or len(contact_number) != 10:
-            messages.error(request, 'Contact number must be a 10-digit number.')
+            messages.error(request, ' Oops! Contact number must be a 10-digit number.')
             return render(request, 'Employee_register.html')
 
         
         if Employee.objects.filter(emp_name=emp_name).exists():
-            messages.error(request, 'Employee with this name already exists. Choose a different name.')
+            messages.error(request, ' Oops! Employee with this name already exists. Choose a different name.')
             return render(request, 'Employee_register.html')
 
         # Create and save the Employee object to the database
@@ -149,7 +149,7 @@ def Employee_register(request):
         )
         employee.save()
        
-        messages.success(request, 'Employee registered successfully!.')
+        messages.success(request, 'Success! Employee registered successfully!.')
 
        
         return redirect('Report_Employee')  
@@ -165,8 +165,10 @@ def Salary_register(request):
           # Validate salary amount
        
         if not salary_amount.isdigit() or len(salary_amount) > 7:
-            messages.error(request, 'Salary should be a maximum of 7 digits.')
-            return render(request, 'Salary_register.html')  
+            messages.error(request, ' Oops! Salary should be a maximum of 7 digits.')
+            return render(request, 'Salary_register.html')
+          
+       
    
        
 
@@ -179,7 +181,7 @@ def Salary_register(request):
         )
         salary.save()
          
-        messages.success(request, 'Employee Salary Create  successfully!.')
+        messages.success(request, 'Success! Employee Salary Create  successfully!.')
 
        
         return redirect('Report_Salary')  

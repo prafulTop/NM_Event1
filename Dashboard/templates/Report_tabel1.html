@@ -14,7 +14,6 @@
 </head>
 <body>   
   <div class="error">
-  <div>
      {% if error %}
      <div class="error-message">{{ error }}</div>
  {% endif %}
@@ -22,7 +21,9 @@
      {% for message in messages %}
          <div class="success-message">{{ message }}</div>
      {% endfor %}
- {% endif %}
+ {% endif %}  
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        
 </div>
 </div>
 <h1>   Event  Records </h1>
@@ -59,26 +60,28 @@
     <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                
                 <th scope="col"> Event Name </th>
                 <th scope="col">Date </th>
                 <th scope="col">Time </th>
                 <th scope="col">Location  </th>
                 <th scope="col">Requirement  </th>
                 <th scope="col">Themes  </th>
+                <th scope="col">ID</th>
             </tr>
         </thead>
         <tbody>
             {% if records %}
-                {% for record in records %}
+                {% for record1 in records %}
                     <tr>
-                        <td>{{ record.id }}</td>
-                        <td>{{ record.name }}</td>
-                        <td>{{ record.date }}</td>
-                        <td>{{ record.time }}</td>
-                        <td>{{ record.location }}</td>
-                        <td>{{ record.requirement }}</td>
-                        <td>{{ record.themes }}</td>
+                        
+                        <td>{{ record1.name }}</td>
+                        <td>{{ record1.date }}</td>
+                        <td>{{ record1.time }}</td>
+                        <td>{{ record1.location }}</td>
+                        <td>{{ record1.requirement }}</td>
+                        <td>{{ record1.themes }}</td>
+                        <td><a href="{% url 'Record_Event' record1.id %}">{{ record1.id }}</a></td>
                     </tr>
                 {% endfor %}
             {% endif %}

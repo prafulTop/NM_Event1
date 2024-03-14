@@ -63,23 +63,25 @@
        <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+               
                 <th scope="col"> Employee Name </th>
                 <th scope="col">Employee Email </th>
                 <th scope="col">Employee Contact No. </th>
                 <th scope="col">Employee address </th>
+                <th scope="col">ID</th>
                 
             </tr>
         </thead>
         <tbody>
             {% if records5 %}
-                {% for record in records5 %}
+                {% for record5 in records5 %}
                     <tr>
-                        <td>{{ record.id }}</td>
-                        <td>{{ record.emp_name }}</td>
-                        <td>{{ record.emp_email  }}</td>
-                        <td>{{ record.contact_number }}</td>
-                        <td>{{ record.address }}</td>
+                       
+                        <td>{{ record5.emp_name }}</td>
+                        <td>{{ record5.emp_email  }}</td>
+                        <td>{{ record5.contact_number }}</td>
+                        <td>{{ record5.address }}</td>
+                        <td><a href="{% url 'Record_Employee' record5.id %}">{{ record5.id }}</a></td>
                        
                     </tr>
                 {% endfor %}

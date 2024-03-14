@@ -135,7 +135,7 @@ h6{ font-size:50px ;
 /* The alert message box */
 .error{
     padding: 10px;
-    background-color:#3CB371; /* Red */
+    background-color:#3CB371; 
     color: white;
   
   }

@@ -59,11 +59,12 @@
     <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">  Payment Name </th>
+              
+                <th scope="col">  Event Name </th>
                 <th scope="col">  Payment Price </th>
                 <th scope="col">  Payment Type </th>
                 <th scope="col">  Payment Status </th>
+                <th scope="col">ID</th>
               
                 
                
@@ -71,13 +72,14 @@
         </thead>
         <tbody>
             {% if records4 %}
-                {% for record in records4 %}
+                {% for record4 in records4 %}
                     <tr>
-                        <td>{{ record.id }}</td>
-                        <td>{{ record.name }}</td>
-                        <td>{{ record.price}}</td>
-                        <td>{{ record.payment_type  }}</td>
-                        <td>{{ record.status }}</td>
+                       
+                        <td>{{ record4.name }}</td>
+                        <td>{{ record4.price}}</td>
+                        <td>{{ record4.payment_type  }}</td>
+                        <td>{{ record4.status }}</td>
+                        <td><a href="{% url 'Record_Payment' record4.id %}">{{ record4.id }}</a></td>
                      
                        
                     </tr>

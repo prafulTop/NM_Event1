@@ -69,23 +69,25 @@
        <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                
                 <th scope="col"> Employee Name </th>
                 <th scope="col">Date </th>
                 <th scope="col">Salary month </th>
                 <th scope="col">Employee Salary </th>
+                <th scope="col">ID</th>
                 
             </tr>
         </thead>
         <tbody>
             {% if records6 %}
-                {% for record in records6 %}
+                {% for record6 in records6 %}
                     <tr>
-                        <td>{{ record.id }}</td>
-                        <td>{{ record.employee_name  }}</td>
-                        <td>{{ record.date }}</td>
-                        <td>{{ record.month }}</td>
-                        <td>{{ record.salary }}</td>
+                        
+                        <td>{{ record6.employee_name  }}</td>
+                        <td>{{ record6.date }}</td>
+                        <td>{{ record6.month }}</td>
+                        <td>{{ record6.salary }}</td>
+                        <td><a href="{% url 'Record_Salary' record6.id %}">{{ record6.id }}</a></td>
                        
                     </tr>
                 {% endfor %}

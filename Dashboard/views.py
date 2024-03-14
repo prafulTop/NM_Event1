@@ -56,6 +56,10 @@ def Register_Customer(request):
             messages.error(request, '   " Customer contact number must be a 10-digit number only !" ')
             return render(request, 'Register_Customer.html') 
         
+        if Customer.objects.filter(cust_name=cust_name).exists():
+            messages.error(request, 'Customer with this name already exists. Choose a different name.')
+            return render(request, 'Register_Customer.html')
+        
         # Create and save the Customer
         customer = Customer(
             cust_name=cust_name,
@@ -215,15 +219,85 @@ def Report6(request):
 
 
 
+
+
 def Customer_Record(request,pk):
     Customer_Record= Customer.objects.get(id=pk)
     return render(request,'record.html',{"Customer_Record":Customer_Record})
 
+def Record_Event(request,pk):
+    Record_Event= Event.objects.get(id=pk)
+    return render(request,'Record_Event.html',{"Record_Event":Record_Event})
+
+def Record_Venue(request,pk):
+    Record_Venue= Venue.objects.get(id=pk)
+    return render(request,'Record_Venue.html',{"Record_Venue":Record_Venue})
+
+def Record_Payment(request,pk):
+    Record_Payment= Payment.objects.get(id=pk)
+    return render(request,'Record_Payment.html',{"Record_Payment":Record_Payment})
+
+
+def Record_Employee(request,pk):
+    Record_Employee= Employee.objects.get(id=pk)
+    return render(request,'Record_Employee.html',{"Record_Employee":Record_Employee})
+
+def Record_Salary(request,pk):
+    Record_Salary= Salary.objects.get(id=pk)
+    return render(request,'Record_Salary.html',{"Record_Salary":Record_Salary})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def Delete_Event(request,pk):
+    delete_it= Event.objects.get(id=pk)
+    delete_it.delete()
+    messages.success(request, ' Delete   Event   Details   successfully!  ')
+    return redirect('Report_tabel1') 
 
 def Delete_record(request,pk):
     delete_it= Customer.objects.get(id=pk)
     delete_it.delete()
     messages.success(request, ' Delete   Customer   Details   successfully!         ')
+    
     return redirect('Report_Customer') 
+    
+def Delete_Venue(request,pk):
+    delete_it= Venue.objects.get(id=pk)
+    delete_it.delete()
+    messages.success(request, ' Delete   Venue   Details   successfully!         ')
+    
+    return redirect('Report_Venue') 
+    
+def Delete_Payment(request,pk):
+    delete_it= Payment.objects.get(id=pk)
+    delete_it.delete()
+    messages.success(request, ' Delete   Payment  Details   successfully!         ')
+    
+    return redirect('Report_Payment') 
+
+def Delete_Employee(request,pk):
+    delete_it= Employee.objects.get(id=pk)
+    delete_it.delete()
+    messages.success(request, ' Delete   Employee  Details   successfully!         ')
+    
+    return redirect('Report_Employee') 
+
+def Delete_Salary(request,pk):
+    delete_it= Salary.objects.get(id=pk)
+    delete_it.delete()
+    messages.success(request, ' Delete   Salary  Details   successfully!         ')
+    
+    return redirect('Report_Salary') 
     
 

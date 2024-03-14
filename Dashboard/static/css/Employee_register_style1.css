@@ -146,7 +146,7 @@ body
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(images/pic.webp);
+   
     display: flex;
     align-items: center;
   margin-left: 300px;
@@ -274,8 +274,14 @@ button{
     transition: all 0.3s linear;
 
 }
-.error-message {
+
+.error{
   color: red;
-  margin-bottom: 10px;
-  font-size: 14px;
+ margin-left: 50px;
+ margin-right: 50px;
+  font-size: 18px;
+  margin-top: 30px;
+  border-radius: 10px;
+ 
+  
 }

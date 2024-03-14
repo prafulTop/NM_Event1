@@ -16,7 +16,6 @@ body
     
     
 }
-
 .Event{
 
     position: relative;
@@ -25,7 +24,7 @@ body
     width: 100%;
     border-radius: 20px;
     padding: 30px;
-    background-color:#2732d1;
+    background-color:#acb1f1;
     background-size: auto;
     background-repeat: no-repeat;
     margin: 0 15px;
@@ -79,22 +78,17 @@ header{
     width:20px ;
     background-color: #2877df;
 }
-label
-{width: 200px;
-    display: inline-block;
-}
+
 
 .Event form .fields{
 
-    width: 200px;
+    width: 100%;
     font-size: 18px;
     font-family: "Roboto Mono", sans-serif;
-    padding-left: 200px;
-    
+    padding-left: 20px;
 }
 form .input-box {
     margin-top: 15px;
-    
 }
 
 
@@ -105,15 +99,14 @@ form .input-box input{
     margin-top: 2px;
     padding-left: 15px;
     font-size:15px ;
-    display: inline; 
-    
+    display: inline;
   
  
  
 }
 form .column{
     display: flex;
-   
+   column-gap: 5px;
    width: 90%;
 }
 
@@ -147,3 +140,13 @@ button{
 button :hover{
     background-color:#7aa4f1 ;
 }
+.error{
+    color: red;
+    margin-left: 80px;
+    margin-right: 50px;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 10px;
+   
+    
+  }

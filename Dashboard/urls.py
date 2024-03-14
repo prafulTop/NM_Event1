@@ -13,6 +13,7 @@ urlpatterns = [
     path('Report_tabel1/',views.Report,name="Report_tabel1"),
     path('Report_Customer/',views.Report2,name="Report_Customer"),
     path('Report_Venue/',views.Report3,name="Report_Venue"),
+    path('Report_Payment/',views.Report4,name="Report_Payment"),
     path('Report_Employee/',views.Report5,name="Report_Employee"),
     path('Report_Salary/',views.Report6,name="Report_Salary"),
     path('record/<int:pk>', views.Customer_Record, name="record"),

@@ -2,22 +2,25 @@
     margin:0;
     padding:0;
     font-family: 'poppins', sans-serif;
-    
+    box-sizing: border-box;
+
 }
 
 .container{
-    width:100%;
-    height: 100vh;
-    background-image:  url("/static/images/pic111.png");
-    background-position: center;
-    background-size:cover;
- 
+width:100%;
+ height: 100vh;
+ background-image:  url("/static/images/pic123.jpg");
+ background-position: center;
+ background-size:cover;
+ position: relative;
 }
 .form-box
 {
+   
     width: 90%;
     max-width: 450px;
     position: absolute;
+    height: 700px;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -56,71 +59,51 @@ input{
 }
 form p{
 text-align: left;
-font-size: 15px;
+font-size: 13px;
 padding-left: 15px;
-margin-left: 80px;
 
 }
 form p a{
     text-decoration: none;
     color: #3c00a0;
-   
 
 }
 .btn-field{
     width: 100%;
     display: flex;
-    margin-top: 25px;
-   
+    justify-content: space-between;
+  
 }
 .btn-field button{
     flex-basis: 80%;
     background: #5634a5;
     color:#fff;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 18px;
     border: 0;
     outline: 0;
     cursor: pointer;
     transition: background 1s;
-    transition: 1s;
-    font-size: 18px;
-   align-items: center;
-   justify-content: center;
-   margin-bottom: 10px;
-   margin-left: 40px ;
-   
-   
-   
+    font-size: 15px;
+    margin-left: 40px;
+    margin-top: 20px;
 } 
 .input-group
 {
     height: 200px;
 }
+.btn-field button.disable{
+    background: #eeeaea;
+    color:#555;
 
+}
 .error{
-    padding: 10px;
-    background-color:#b33c3c; /* Red */
-    color: white;
-  
+    color: red;
+   margin-left: 80px;
+   margin-right: 50px;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 10px;
+   
+    animation: .3s linear;
   }
-  
-  /* The close button */
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  /* When moving the mouse over the close button */
-  .closebtn:hover {
-    color: black;
-  }
-
-  
- 

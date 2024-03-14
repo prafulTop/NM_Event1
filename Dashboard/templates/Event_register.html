@@ -26,14 +26,7 @@
             </header>
             <form action="{% url 'Event_register' %}" method="POST">
             {% csrf_token %}
-            {% if error %}
-                <div class="error-message">{{ error }}</div>
-            {% endif %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="success-message">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
+         
             <div class="title">
                <span>Event Details</span>
             </div>
@@ -71,7 +64,19 @@
             
                 <a href="{% url 'home' %}"> <b1><button type="button">Home <i class="fa-solid fa-house"></i></button> </b1></a>
          </div>
-         
+          <div class="error">
+             <div>
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+    
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="success-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
             
 
              </div>

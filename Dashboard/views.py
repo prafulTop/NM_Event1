@@ -8,8 +8,6 @@ from .models import Employee
 from .models import Salary
 
 
-
-
 from django.contrib import messages
 # Create your views here.
 def home(request):
@@ -41,7 +39,7 @@ def Event_register(request):
         event.save()
         
         
-        messages.success(request, 'Event registered successfully!')
+        messages.success(request, 'Event register successfully!')
         return redirect('Report_tabel1')  # Update 'event_register' to your actual URL name
     return render(request,'Event_register.html', {})
 
@@ -68,33 +66,12 @@ def Register_Customer(request):
         customer.save()
 
         messages.success(request, 'Customer registered successfully!  ')
-        return redirect('Register_Customer')  # Update 'Register_Customer' to your actual URL name
+        return redirect('Report_Customer')  # Update 'Register_Customer' to your actual URL name
     return render(request, 'Register_Customer.html')
 
 
 
 
-# def Register_Customer(request):
-#     if request.method == 'POST':
-#         cust_name = request.POST.get('customer_name')
-#         cust_email = request.POST.get('customer_email')
-#         cust_phone_no = request.POST.get('customer_phone_no')
-#         cust_address = request.POST.get('customer_address')
-
-#         # Perform validation if needed
-     
-#         # Create and save the Customer
-#         customer = Customer(
-#           Cust_name=cust_name,
-#           Cust_email=cust_email,
-#           Cust_phone_no=cust_phone_no,
-#           Cust_address=cust_address
-#         )
-#         customer.save()
-       
-#         messages.success(request, 'Customer registered successfully!')
-#         return redirect('home')  # Update 'Register_Customer' to your actual URL name
-#     return render(request,'Register_Customer.html')
 
 def Venue_register(request):
     if request.method == 'POST':
@@ -112,9 +89,11 @@ def Venue_register(request):
 
         messages.success(request, 'Venue registered successfully!')
 
-        return redirect('home')  # Redirect to the same page after form submission
+        return redirect('Report_Venue')  # Redirect to the same page after form submission
 
     return render(request, 'venue_register.html')
+
+
 
 def Payment_register(request):
     if request.method == 'POST':
@@ -135,8 +114,10 @@ def Payment_register(request):
         messages.success(request, 'Payment registered successfully!')
 
 
-        return redirect('home')
+        return redirect('Report_Payment')
     return render(request,'Payment_register.html')
+
+
 
 
 def Employee_register(request):
@@ -167,8 +148,9 @@ def Employee_register(request):
         messages.success(request, 'Employee registered successfully!.')
 
        
-        return redirect('home')  
+        return redirect('Report_Employee')  
     return render(request, 'Employee_register.html')
+
 
 def Salary_register(request):
     if request.method == 'POST':
@@ -176,6 +158,13 @@ def Salary_register(request):
         date = request.POST.get('date')
         month = request.POST.get('month')
         salary_amount = request.POST.get('salary')
+          # Validate salary amount
+       
+        if not salary_amount.isdigit() or len(salary_amount) > 7:
+            messages.error(request, 'Salary should be a maximum of 7 digits.')
+            return render(request, 'Salary_register.html')  
+   
+       
 
         # Create and save the Salary object to the database
         salary = Salary(
@@ -189,16 +178,16 @@ def Salary_register(request):
         messages.success(request, 'Employee Salary Create  successfully!.')
 
        
-        return redirect('home')  
+        return redirect('Report_Salary')  
         
     return render(request, 'Salary_register.html')
-
 
 
 
 def Report(request):
     records = Event.objects.all()
     return render(request,'Report_tabel1.html',{"records":records})
+
 
 def Report2(request):
     records2 = Customer.objects.all()
@@ -208,22 +197,33 @@ def Report2(request):
 def Report3(request):
     records3 = Venue.objects.all()
     return render(request,'Report_Venue.html',{"records3":records3})
+
+
+def  Report4(request):
+    records4 = Payment.objects.all()
+    return render(request,'Report_Payment.html',{"records4":records4})
+
+
 def Report5(request):
     records5 = Employee.objects.all()
     return render(request,'Report_Employee.html',{"records5":records5})
+
+
 def Report6(request):
     records6 = Salary.objects.all()
     return render(request,'Report_Salary.html',{"records6":records6})
+
+
 
 def Customer_Record(request,pk):
     Customer_Record= Customer.objects.get(id=pk)
     return render(request,'record.html',{"Customer_Record":Customer_Record})
 
+
 def Delete_record(request,pk):
     delete_it= Customer.objects.get(id=pk)
     delete_it.delete()
-    if delete :
-    messages.success(request, ' DeleteCustomer registered successfully!  ')
+    messages.success(request, ' Delete   Customer   Details   successfully!         ')
     return redirect('Report_Customer') 
     
 

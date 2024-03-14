@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Report_Venue</title>
-    <link rel="stylesheet" href="{% static 'css/Report_Customer_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Report_Venue_style.css' %}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,7 +13,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+  <div class="error">
+    <div>
+       {% if error %}
+       <div class="error-message">{{ error }}</div>
+   {% endif %}
+  
+   {% if messages %}
+       {% for message in messages %}
+           <div class="success-message">{{ message }}</div>
+       {% endfor %}
+   {% endif %}
+  </div>
+  </div>
+  <h1>  Venue  Records</h1>
     <div class="wrapper">
         <input type="checkbox" id="btn" hidden />
         <label for="btn" class="menu-btn">
@@ -33,7 +46,7 @@
               <a href="{% url 'Report_Venue' %}"><i class="	fas fa-map-marker-alt"></i>Venue</a>
             </li>
             <li>
-              <a href="#"><i class="	fas fa-coins"></i>Payment </a>
+              <a href="{% url 'Report_Payment' %}"><i class="	fas fa-coins"></i>Payment </a>
             </li>
             <li>
               <a href="{% url 'home' %}"><i class=" fa-solid fa-house"></i>Home</a>

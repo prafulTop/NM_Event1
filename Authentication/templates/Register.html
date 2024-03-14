@@ -19,7 +19,15 @@ initial-scale=1.0">
             <div>
                {% if error %}
                <div class="error-message">{{ error }}</div>
-           {% endif %}</div></div>
+           {% endif %}
+   
+           {% if messages %}
+               {% for message in messages %}
+                   <div class="success-message">{{ message }}</div>
+               {% endfor %}
+           {% endif %}
+       </div>
+   </div>
    
         
         <form action="{% url 'register' %}" method="POST">

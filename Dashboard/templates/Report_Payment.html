@@ -3,8 +3,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8"/>
-    <title>Report_Customer</title>
-    <link rel="stylesheet" href="{% static 'css/Report_Customer_style1.css' %}">
+    <title>Report_Payment</title>
+    <link rel="stylesheet" href="{% static 'css/Report_Venue_style.css' %}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,20 +13,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="error">
-    <div>
-       {% if error %}
-       <div class="error-message">{{ error }}</div>
-   {% endif %}
-
-   {% if messages %}
-       {% for message in messages %}
-           <div class="success-message">{{ message }}</div>
-       {% endfor %}
-   {% endif %}
-</div>
-</div>
-    <h1>   Customer   Record</h1>
+    <div class="error">
+        <div>
+           {% if error %}
+           <div class="error-message">{{ error }}</div>
+       {% endif %}
+      
+       {% if messages %}
+           {% for message in messages %}
+               <div class="success-message">{{ message }}</div>
+           {% endfor %}
+       {% endif %}
+      </div>
+      </div>
+    <h1>   Payment   Records</h1>
     <div class="wrapper">
         <input type="checkbox" id="btn" hidden />
         <label for="btn" class="menu-btn">
@@ -56,28 +56,29 @@
         </nav>
       </div>
       
-    <table class="table  table-bordered border-primary table-hover">
+    <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-              
-                <th scope="col"> Customer Name</th>
-                <th scope="col"> Customer Email</th>
-                <th scope="col">Customer Contact no.</th>
-                <th scope="col"> Customer Address </th>
                 <th scope="col">ID</th>
-             
+                <th scope="col">  Payment Name </th>
+                <th scope="col">  Payment Price </th>
+                <th scope="col">  Payment Type </th>
+                <th scope="col">  Payment Status </th>
+              
+                
+               
             </tr>
         </thead>
         <tbody>
-            {% if records2 %}
-                {% for record in records2 %}
+            {% if records4 %}
+                {% for record in records4 %}
                     <tr>
-                       
-                        <td>{{ record.cust_name }}</td>
-                        <td>{{ record.cust_email}}</td>
-                        <td>{{ record.cust_phone_no }}</td>
-                        <td>{{ record.cust_address }}</td>
-                        <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+                        <td>{{ record.id }}</td>
+                        <td>{{ record.name }}</td>
+                        <td>{{ record.price}}</td>
+                        <td>{{ record.payment_type  }}</td>
+                        <td>{{ record.status }}</td>
+                     
                        
                     </tr>
                 {% endfor %}

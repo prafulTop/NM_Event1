@@ -13,6 +13,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request, ' user login successfully!  ')
                 return redirect('home')
             else:
                 messages.error(request, "Invalid username or password")
@@ -43,6 +44,7 @@ def register(request):
         user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
         
         # Redirect to the login page after successful registration
+        messages.success(request, ' user Register  successfully!  ')
         return redirect('login')
 
     return render(request, 'register.html')

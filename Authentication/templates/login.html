@@ -9,12 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
+     <div class="error">
+             <div>
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+    
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="success-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
 <div class="container">
     <div  class="form-box">
         <h1 id="title">Login</h1>
-        {% if error %}
-            <div class="error-message">{{ error }}</div>
-        {% endif %}
+       
         <form id="loginForm" method="POST" action="{% url 'login' %}">
             {% csrf_token %}
            <div class="input-group">

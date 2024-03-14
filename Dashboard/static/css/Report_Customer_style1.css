@@ -50,7 +50,7 @@
 }
 #sidebar{
   position: fixed;
-  background: #82b7c4;
+  background: #04728d;
   height: 100%;
   width: 300px;
   overflow: hidden;
@@ -132,10 +132,16 @@
 .list-items .icons a:first-child{
   margin-left: 0px;
 }
+h1{
+  margin-left: 800px;
+  align-items: center;
+  justify-content: center;
+
+}
 .error{
   color: green;
-  margin-left: 80px;
-  margin-right: 50px;
+ margin-left: 80px;
+ margin-right: 50px;
   font-size: 18px;
   margin-top: 30px;
   border-radius: 10px;

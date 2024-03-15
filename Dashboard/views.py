@@ -265,41 +265,41 @@ def Record_Salary(request,pk):
 def Delete_Event(request,pk):
     delete_it= Event.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Event   Details   successfully!  ')
+    messages.success(request, '  Success!  Delete   Event   Details   successfully!  ')
     return redirect('Report_tabel1') 
 
 def Delete_record(request,pk):
     delete_it= Customer.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Customer   Details   successfully!         ')
+    messages.success(request, ' Success!  Delete   Customer   Details   successfully!         ')
     
     return redirect('Report_Customer') 
     
 def Delete_Venue(request,pk):
     delete_it= Venue.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Venue   Details   successfully!         ')
+    messages.success(request, ' Success!  Delete   Venue   Details   successfully!         ')
     
     return redirect('Report_Venue') 
     
 def Delete_Payment(request,pk):
     delete_it= Payment.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Payment  Details   successfully!         ')
+    messages.success(request, '  Success! Delete   Payment  Details   successfully!         ')
     
     return redirect('Report_Payment') 
 
 def Delete_Employee(request,pk):
     delete_it= Employee.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Employee  Details   successfully!         ')
+    messages.success(request, ' Success!  Delete   Employee  Details   successfully!         ')
     
     return redirect('Report_Employee') 
 
 def Delete_Salary(request,pk):
     delete_it= Salary.objects.get(id=pk)
     delete_it.delete()
-    messages.success(request, ' Delete   Salary  Details   successfully!         ')
+    messages.success(request, '  Success! Delete   Salary  Details   successfully!         ')
     
     return redirect('Report_Salary') 
     
@@ -325,7 +325,7 @@ def Update_Event(request, pk):
 
         try:
             event.save()
-            messages.success(request, 'Event updated successfully!')
+            messages.success(request, ' Success! Event updated successfully!')
             return redirect('Report_tabel1')  # Update 'Report_tabel1' to your actual URL name
         except Exception as e:
             messages.error(request, f'Error updating event: {e}')
@@ -355,7 +355,7 @@ def Update_Customer(request, pk):
 
         try:
             customer.save()
-            messages.success(request, 'Customer updated successfully!')
+            messages.success(request, ' Success! Customer updated successfully!')
             return redirect('Report_Customer')  # Update 'Report_Customer' to your actual URL name
         except Exception as e:
             messages.error(request, f'Error updating customer: {e}')

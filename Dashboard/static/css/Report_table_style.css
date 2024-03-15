@@ -139,11 +139,17 @@ h1{
 
 }
 
-.error{
+.error-message {
   padding: 20px;
-  background-color:#3CB371; 
+  background-color: red; /* Red color for error message */
   color: white;
+}
 
+.success-message {
+  padding: 20px;
+  background-color: green; /* Green color for success message */
+  color: white;
+ 
 }
 
 /* The close button */

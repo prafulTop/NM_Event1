@@ -99,7 +99,7 @@ form p a{
 }
 
 .error-message {
-    padding: 20px;
+    padding: 10px;
     background-color: red; /* Red color for error message */
     color: white;
 }

@@ -50,7 +50,7 @@
 }
 #sidebar{
   position: fixed;
-  background: #04728d;
+  background: #82b7c4;
   height: 100%;
   width: 300px;
   overflow: hidden;
@@ -138,15 +138,34 @@ h1{
   justify-content: center;
 
 }
-.error{
-  color: green;
- margin-left: 80px;
- margin-right: 50px;
-  font-size: 18px;
-  margin-top: 30px;
-  border-radius: 10px;
+.error-message {
+  padding: 20px;
+  background-color: red; /* Red color for error message */
+  color: white;
+}
+
+.success-message {
+  padding: 20px;
+  background-color: green; /* Green color for success message */
+  color: white;
  
-  
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
 }
 
 

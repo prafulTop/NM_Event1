@@ -59,14 +59,14 @@
     <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                
+              <th scope="col">ID</th>
                 <th scope="col"> Event Name </th>
                 <th scope="col">Date </th>
                 <th scope="col">Time </th>
                 <th scope="col">Location  </th>
                 <th scope="col">Requirement  </th>
                 <th scope="col">Themes  </th>
-                <th scope="col">ID</th>
+               
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -74,14 +74,14 @@
             {% if records %}
                 {% for record1 in records %}
                     <tr>
-                        
+                      <td><a href="{% url 'Record_Event' record1.id %}">{{ record1.id }}</a></td>
                         <td>{{ record1.name }}</td>
                         <td>{{ record1.date }}</td>
                         <td>{{ record1.time }}</td>
                         <td>{{ record1.location }}</td>
                         <td>{{ record1.requirement }}</td>
                         <td>{{ record1.themes }}</td>
-                        <td><a href="{% url 'Record_Event' record1.id %}">{{ record1.id }}</a></td>
+                        
                         
                         <td> 
                           <a href="{% url 'Update_Event' record1.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>

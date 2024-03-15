@@ -20,27 +20,35 @@
          
         </div>
         <div class="card-body">
-          
+            <br>
+            <br>
             <p class="card-text">
             <strong>  Event Id : </strong>{{  Record_Event.id }}</p>
+            <br>
 
             <p class="card-text">
             <strong>  Event Name  : </strong>{{  Record_Event.name}}</p>
+            <br>
 
             <p class="card-text">
             <strong>   Event Date : </strong>{{  Record_Event.date}}</p>
+            <br>
 
             <p class="card-text">
             <strong>  Event Time : </strong>{{  Record_Event.time }}</p>
+            <br>
 
             <p class="card-text">
             <strong> Event Location :  </strong>{{  Record_Event.location}}</p>
+            <br>
             
             <p class="card-text">
                 <strong> Event Requirement :  </strong>{{  Record_Event.requirement}}</p>
+                <br>
 
             <p class="card-text">
                 <strong> Event  Themes :  </strong>{{  Record_Event.themes}}</p>
+                <br>
         
     
 
@@ -55,7 +63,12 @@
 </br>
 </br>
 
-    <a href="{% url 'Delete_Event' Record_Event.id %}" class="btn btn-danger">Delete</a>
+<button id="printButton" class="btn btn-primary">Print</button>
+<script>
+document.getElementById('printButton').addEventListener('click', function() {
+    window.print();
+});
+</script>
    
    
 </body>

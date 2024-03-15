@@ -20,21 +20,27 @@
          
         </div>
         <div class="card-body">
+            <br>
           
             <p class="card-text">
             <strong>  Payment Id : </strong>{{   Record_Payment.id }}</p>
+            <br>
 
             <p class="card-text">
             <strong>   Event Name : </strong>{{  Record_Payment.name}}</p>
+            <br>
 
             <p class="card-text">
             <strong> Payment Price : </strong>{{ Record_Payment.price}}</p>
+            <br>
 
             <p class="card-text">
             <strong>  Payment Type : </strong>{{  Record_Payment.payment_type  }}</p>
+            <br>
 
             <p class="card-text">
                 <strong>  Payment Status : </strong>{{  Record_Payment.status }}</p>
+                <br>
 
           
 
@@ -49,7 +55,12 @@
 </br>
 </br>
 
-    <a href="{% url 'Delete_Payment' Record_Payment.id %}" class="btn btn-danger">Delete</a>
+<button id="printButton" class="btn btn-primary">Print</button>
+<script>
+document.getElementById('printButton').addEventListener('click', function() {
+    window.print();
+});
+</script>
    
    
 </body>

@@ -60,11 +60,11 @@
     <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                
+              <th scope="col">ID</th>
                 <th scope="col"> Event Name</th>
                 <th scope="col"> Event Type</th>
                 <th scope="col"> Event Address</th>
-                <th scope="col">ID</th>
+                
                 <th scope="col">Action</th>
                 
               
@@ -76,11 +76,11 @@
             {% if records3 %}
                 {% for record3 in records3 %}
                     <tr>
-                        
+                      <td><a href="{% url 'Record_Venue' record3.id %}">{{ record3.id }}</a></td>
                         <td>{{ record3.venue_event_name }}</td>
                         <td>{{ record3.event_type}}</td>
                         <td>{{ record3.event_address }}</td>
-                        <td><a href="{% url 'Record_Venue' record3.id %}">{{ record3.id }}</a></td>
+                        
                         <td> 
                           <a href="{% url 'Update_Venue' record3.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> </a>
                           <a href="{% url 'Delete_Venue' record3.id %}" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a>

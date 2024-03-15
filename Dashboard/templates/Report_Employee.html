@@ -67,12 +67,11 @@
        <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-               
+                <th scope="col">ID</th>
                 <th scope="col"> Employee Name </th>
                 <th scope="col">Employee Email </th>
                 <th scope="col">Employee Contact No. </th>
                 <th scope="col">Employee address </th>
-                <th scope="col">ID</th>
                 <th scope="col">Action</th>
                 
             </tr>
@@ -81,12 +80,11 @@
             {% if records5 %}
                 {% for record5 in records5 %}
                     <tr>
-                       
+                        <td><a href="{% url 'Record_Employee' record5.id %}">{{ record5.id }}</a></td>
                         <td>{{ record5.emp_name }}</td>
                         <td>{{ record5.emp_email  }}</td>
                         <td>{{ record5.contact_number }}</td>
                         <td>{{ record5.address }}</td>
-                        <td><a href="{% url 'Record_Employee' record5.id %}">{{ record5.id }}</a></td>
                         <td> 
                             <a href="{% url 'Update_Employee' record5.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> </a>
                             <a href="{% url 'Delete_Employee' record5.id %}" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a>

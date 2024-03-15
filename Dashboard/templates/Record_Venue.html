@@ -46,8 +46,13 @@
 </br>
 </br>
 
-    <a href="{% url 'Delete_Venue' Record_Venue.id %}" class="btn btn-danger">Delete</a>
-   
+
+<button id="printButton" class="btn btn-primary">Print</button>
+<script>
+document.getElementById('printButton').addEventListener('click', function() {
+    window.print();
+});
+</script>
    
 </body>
 </html>

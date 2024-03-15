@@ -67,12 +67,11 @@
        <table class="table table-bordered border-primary  table-hover">
         <thead class="thead-dark">
             <tr>
-                
+                <th scope="col">ID</th>
                 <th scope="col"> Employee Name </th>
                 <th scope="col">Date </th>
                 <th scope="col">Salary month </th>
                 <th scope="col">Employee Salary </th>
-                <th scope="col">ID</th>
                 <th scope="col">Action</th>
                 
             </tr>
@@ -81,12 +80,12 @@
             {% if records6 %}
                 {% for record6 in records6 %}
                     <tr>
-                        
+                        <td><a href="{% url 'Record_Salary' record6.id %}">{{ record6.id }}</a></td>
                         <td>{{ record6.employee_name  }}</td>
                         <td>{{ record6.date }}</td>
                         <td>{{ record6.month }}</td>
                         <td>{{ record6.salary }}</td>
-                        <td><a href="{% url 'Record_Salary' record6.id %}">{{ record6.id }}</a></td>
+                        
                         <td>
                         <a href="{% url 'Update_salary' record6.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                         <a href="{% url 'Delete_Salary' record6.id %}" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a>

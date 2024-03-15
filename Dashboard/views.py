@@ -167,8 +167,8 @@ def Salary_register(request):
         salary_amount = request.POST.get('salary')
           # Validate salary amount
        
-        if not salary_amount.isdigit() or len(salary_amount) > 7:
-            messages.error(request, ' Oops! Salary should be a maximum of 7 digits.')
+        if not salary_amount.isdigit() or len(salary_amount) > 6:
+            messages.error(request, ' Oops! Salary should be a maximum of 6 digits.')
             return render(request, 'Salary_register.html')
           
        

@@ -82,8 +82,9 @@ col{
 
 .p1
 {
- margin-left: 300px;
+ margin-left: 250px;
  margin-top: 180px;
+ font-family: "Oswald", sans-serif;
 }
 
 .code{
@@ -112,6 +113,7 @@ col{
 h1{
     font-size:50px ;
     color: rgb(255, 184, 30);
+    
 
 
     }

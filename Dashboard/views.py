@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Event
 from .models import Customer
 from .models import Venue
@@ -6,10 +6,13 @@ from .models import Payment
 from .models import Event
 from .models import Employee
 from .models import Salary
-
+from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
 # Create your views here.
+
+@login_required
+
 def home(request):
     return render(request,'homepage.html',)
 
@@ -259,8 +262,6 @@ def Record_Salary(request,pk):
 
 
 
-
-
 def Delete_Event(request,pk):
     delete_it= Event.objects.get(id=pk)
     delete_it.delete()
@@ -303,3 +304,60 @@ def Delete_Salary(request,pk):
     return redirect('Report_Salary') 
     
 
+def Update_Event(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    
+    if request.method == 'POST':
+        name = request.POST.get('event_name')
+        date = request.POST.get('event_date')
+        time = request.POST.get('event_time')
+        location = request.POST.get('event_location')
+        requirement = request.POST.get('event_requirement')
+        themes = request.POST.get('event_themes')
+
+        # Update the event object
+        event.name = name
+        event.date = date
+        event.time = time
+        event.location = location
+        event.requirement = requirement
+        event.themes = themes
+
+        try:
+            event.save()
+            messages.success(request, 'Event updated successfully!')
+            return redirect('Report_tabel1')  # Update 'Report_tabel1' to your actual URL name
+        except Exception as e:
+            messages.error(request, f'Error updating event: {e}')
+
+    return render(request, 'update_event.html', {'event': event})
+
+
+def Update_Customer(request, pk):
+    customer = get_object_or_404(Customer, pk=pk)
+    
+    if request.method == 'POST':
+        cust_name = request.POST.get('customer_name')
+        cust_email = request.POST.get('customer_email')
+        cust_phone_no = request.POST.get('customer_phone_no')
+        cust_address = request.POST.get('customer_address')
+
+        # Perform validation if needed
+        if not cust_phone_no.isdigit() or len(cust_phone_no) != 10:
+            messages.error(request, 'Oops! Customer contact number must be a 10-digit number only!')
+            return render(request, 'Update_Customer.html', {'customer': customer})
+        
+        # Update the customer object
+        customer.cust_name = cust_name
+        customer.cust_email = cust_email
+        customer.cust_phone_no = cust_phone_no
+        customer.cust_address = cust_address
+
+        try:
+            customer.save()
+            messages.success(request, 'Customer updated successfully!')
+            return redirect('Report_Customer')  # Update 'Report_Customer' to your actual URL name
+        except Exception as e:
+            messages.error(request, f'Error updating customer: {e}')
+
+    return render(request, 'Update_Customer.html', {'customer': customer})

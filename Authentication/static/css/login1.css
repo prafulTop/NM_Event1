@@ -98,15 +98,21 @@ form p a{
     height: 200px;
 }
 
-.error{
-    padding: 10px;
-    background-color:#b33c3c; /* Red */
+.error-message {
+    padding: 20px;
+    background-color: red; /* Red color for error message */
     color: white;
-  
-  }
-  
-  /* The close button */
-  .closebtn {
+}
+
+.success-message {
+    padding: 20px;
+    background-color: green; /* Green color for success message */
+    color: white;
+   
+}
+
+/* The close button */
+.closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -115,12 +121,13 @@ form p a{
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  /* When moving the mouse over the close button */
-  .closebtn:hover {
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
     color: black;
-  }
+}
+
 
   
  

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Customer</title>
+    <link rel="stylesheet" href="{% static 'css/Register_customer.css' %}">
+</head>
+<body>
+    <div class="Customer">
+        <header>
+            Update Customer
+        </header>
+        <form action="{% url 'Update_Customer' customer.id %}" method="POST">
+            {% csrf_token %}
+            <div class="title">
+                <span>Customer Personal Details</span>
+            </div>
+            <div class="fields">
+                <div class="input-box">
+                    <label for="customer_name">Customer Name:</label>
+                    <input type="text" id="customer_name" name="customer_name" value="{{ customer.cust_name }}" required>
+                </div>
+                <div class="input-box">
+                    <label for="customer_email">Customer Email:</label>
+                    <input type="email" id="customer_email" name="customer_email" value="{{ customer.cust_email }}" required>
+                </div>
+                <div class="input-box">
+                    <label for="customer_phone_no">Customer Contact no.:</label>
+                    <input type="text" id="customer_phone_no" name="customer_phone_no" value="{{ customer.cust_phone_no }}" required>
+                </div>
+                <div class="input-box">
+                    <label for="customer_address">Customer Address:</label>
+                    <input type="text" id="customer_address" name="customer_address" value="{{ customer.cust_address }}" required>
+                </div>
+            </div>
+            <div class="button">
+                <button type="reset">Delete</button>
+                <button type="submit">Update</button>
+                <a href="{% url 'Event_register' %}"><button type="button">Next <i class="fa-solid fa-caret-right"></i></button></a>
+                <a href="{% url 'home' %}"><button type="button">Home <i class="fa-solid fa-house"></i></button></a>
+            </div>
+            <div class="error">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="success-message">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        </form>
+       
+</body>
+</html>

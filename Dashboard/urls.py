@@ -29,8 +29,15 @@ urlpatterns = [
     path('Delete_record/<int:pk>', views.Delete_record, name="Delete_record"),
     path('Delete_Venue/<int:pk>', views.Delete_Venue, name="Delete_Venue"),
     path('Delete_Payment/<int:pk>', views.Delete_Payment, name="Delete_Payment"),
-     path('Delete_Employee/<int:pk>', views.Delete_Employee, name="Delete_Employee"),
-      path('Delete_Salary/<int:pk>', views.Delete_Salary, name="Delete_Salary"),
+    path('Delete_Employee/<int:pk>', views.Delete_Employee, name="Delete_Employee"),
+    path('Delete_Salary/<int:pk>', views.Delete_Salary, name="Delete_Salary"),
+
+    path('Update_Event/<int:pk>', views.Update_Event, name="Update_Event"),
+    # path('Update_Venue/<int:pk>', views.Update_Venue, name="Update_Venue"),
+     path('Update_Customer/<int:pk>', views.Update_Customer, name="Update_Customer"),
+    #  path('Update_Employees/<int:pk>', views.Update_Employees, name="Update_Employees"),
+    #  path('Update_Employees_salary/<int:pk>', views.Update_Employees_salary, name="Update_Employees_salary"),
+
 
     # path('Employee_register/',views.Employee,name="Employee_register")
 ]

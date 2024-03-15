@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Event</title>
+    <link rel="stylesheet" href="{% static 'css/Event_Register.css' %}">
+</head>
+<body>
+    <div class="Event">
+        <header>
+            Update Event
+        </header>
+        <form action="{% url 'Update_Event' event.id %}" method="POST">
+            {% csrf_token %}
+            <div class="title">
+                <span>Event Details</span>
+            </div>
+            <div class="fields">
+                <div class="column">
+                    <div class="input-box">
+                        <label for="event_name">Event Name:</label>
+                        <input type="text" id="event_name" name="event_name" value="{{ event.name }}" >
+                    </div>
+                    <div class="input-box">
+                        <label for="event_date">Event Date:</label>
+                        <input type="date" id="event_date" name="event_date" value="{{ event.date|date:'Y-m-d' }}" >
+                    </div>
+                    <div class="input-box">
+                        <label for="event_time">Event Time:</label>
+                        <input type="time" id="event_time" name="event_time" value="{{ event.time|time:'H:i' }}" >
+                    </div>
+                </div>
+                <div class="Address">
+                    <div class="input-box">
+                        <label for="event_location">Event Location:</label>
+                        <input type="text" id="event_location" name="event_location" value="{{ event.location }}" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="event_requirement">Requirement:</label>
+                        <input type="text" id="event_requirement" name="event_requirement" value="{{ event.requirement }}" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="event_themes">Event Themes:</label>
+                        <input type="text" id="event_themes" name="event_themes" value="{{ event.themes }}">
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit">Update</button>
+                <a href="{% url 'Report_tabel1' %}">Back to Reports</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

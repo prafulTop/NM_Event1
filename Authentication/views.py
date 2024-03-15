@@ -13,12 +13,12 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, ' user login successfully!  ')
+                messages.success(request, 'Success! Login successfully!  ')
                 return redirect('home')
             else:
-                messages.error(request, "Invalid username or password")
+                messages.error(request, " Oops! Invalid username or password")
         else:
-            messages.error(request, "Username and password are required.")
+            messages.error(request, " Oops! Username and password are required.")
     
     return render(request, 'login.html')
 
@@ -36,10 +36,10 @@ def register(request):
         confirm_password = request.POST.get('confirm_password')
 
         if User.objects.filter(username=username).exists():
-            return render(request, 'register.html', {'error': 'Username already exists. Choose a different username.'})
+            return render(request, 'register.html', {'error': ' Oops! Username already exists. Choose a different username.'})
 
         if password != confirm_password:
-            return render(request, 'Register.html', {'error': 'Passwords do not match.'})
+            return render(request, 'Register.html', {'error': ' Oops! Passwords do not match.'})
 
         user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
         

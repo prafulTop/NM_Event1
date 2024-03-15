@@ -7,27 +7,32 @@
     content="width=device-width,
 initial-scale=1.0">
 <title> Register</title>
-<link rel="stylesheet" href="{% static 'css/Register_style.css' %}">
+<link rel="stylesheet" href="{% static 'css/Register_style1.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
     <body>
 <div class="container">
+    {% if error %}
+    {% for error in messages %}
+        <div class="error-message">{{ error }}<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+    
+    
+    
+        {% if messages %}
+        {% for message in messages %}
+        <div class="success-message ">{{ message }}
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+
     <div  class="form-box">
        
         <h1 id="title">Sign in</h1>
-        <div class="error">
-            <div>
-               {% if error %}
-               <div class="error-message">{{ error }}</div>
-           {% endif %}
-   
-           {% if messages %}
-               {% for message in messages %}
-                   <div class="success-message">{{ message }}</div>
-               {% endfor %}
-           {% endif %}
-       </div>
-   </div>
+        
    
         
         <form action="{% url 'register' %}" method="POST">

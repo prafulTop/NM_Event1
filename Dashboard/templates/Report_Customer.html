@@ -65,6 +65,7 @@
                 <th scope="col">Customer Contact no.</th>
                 <th scope="col"> Customer Address </th>
                 <th scope="col">ID</th>
+                <th scope="col">Action</th>
              
             </tr>
         </thead>
@@ -78,6 +79,10 @@
                         <td>{{ record2.cust_phone_no }}</td>
                         <td>{{ record2.cust_address }}</td>
                         <td><a href="{% url 'record' record2.id %}">{{ record2.id }}</a></td>
+                        <td> 
+                          <a href="{% url 'Update_Customer' record2.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                          <a href="{% url 'Delete_record' record2.id %}" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
                        
                     </tr>
                 {% endfor %}

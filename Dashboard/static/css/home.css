@@ -132,16 +132,24 @@ h5{ font-size:50px ;
 h6{ font-size:50px ;
      color: rgb(247, 69, 69)
 }
-/* The alert message box */
-.error{
-    padding: 10px;
-    background-color:#3CB371; 
+
+
+.error-message {
+    padding: 15px;
+    background-color: rgb(173, 58, 58); /* Red color for error message */
     color: white;
-  
-  }
-  
-  /* The close button */
-  .closebtn {
+}
+
+.success-message {
+    padding: 15px;
+    background-color: green; /* Green color for success message */
+    color: white;
+    margin-left: 100px;
+   
+}
+
+/* The close button */
+.closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -150,9 +158,9 @@ h6{ font-size:50px ;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  /* When moving the mouse over the close button */
-  .closebtn:hover {
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
     color: black;
-  }
+}

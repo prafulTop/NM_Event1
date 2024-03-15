@@ -361,3 +361,75 @@ def Update_Customer(request, pk):
             messages.error(request, f'Error updating customer: {e}')
 
     return render(request, 'Update_Customer.html', {'customer': customer})
+
+def Update_Venue(request, pk):
+    venue = get_object_or_404(Venue, pk=pk)
+
+    if request.method == 'POST':
+        v_event_name = request.POST.get('Event_name')
+        event_type = request.POST.get('Event_type')
+        event_address = request.POST.get('Event_address')
+
+        # Update the venue details
+        venue.venue_event_name = v_event_name
+        venue.event_type = event_type
+        venue.event_address = event_address
+        venue.save()
+
+        messages.success(request, 'Success! Venue updated successfully!')
+        return redirect('Report_Venue')  # Redirect to the venue report page after update
+
+    return render(request, 'Update_Venue.html', {'venue': venue})
+
+
+def Update_Employee(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)
+
+    if request.method == 'POST':
+        emp_name = request.POST.get('emp_name')
+        emp_email = request.POST.get('emp_email')
+        contact_number = request.POST.get('contact_number')
+        address = request.POST.get('address')
+
+        if not contact_number.isdigit() or len(contact_number) != 10:
+            messages.error(request, 'Oops! Contact number must be a 10-digit number.')
+            return render(request, 'Update_Employee.html', {'employee': employee})
+
+
+        # Update the Employee object in the database
+        employee.emp_name = emp_name
+        employee.emp_email = emp_email
+        employee.contact_number = contact_number
+        employee.address = address
+        employee.save()
+
+        messages.success(request, 'Success! Employee details updated successfully.')
+
+        return redirect('Report_Employee')
+
+    return render(request, 'Update_Employee.html', {'employee': employee})
+
+def Update_salary(request, pk):
+    salary = get_object_or_404(Salary, pk=pk)
+
+    if request.method == 'POST':
+        employee_name = request.POST.get('employee_name')
+        date = request.POST.get('date')
+        month = request.POST.get('month')
+        salary_amount = request.POST.get('salary')
+
+        # Validate salary amount
+ 
+
+        # Update the Salary object in the database
+        salary.employee_name = employee_name
+        salary.date = date
+        salary.month = month
+        salary.salary = salary_amount
+        salary.save()
+
+        messages.success(request, 'Success! Employee Salary updated successfully.')
+
+        return redirect('Report_Salary')
+
+    return render(request, 'Update_salary.html', {'salary': salary})

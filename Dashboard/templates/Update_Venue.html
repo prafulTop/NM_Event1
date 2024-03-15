@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Venue</title>
+    <link rel="stylesheet" href="{% static 'css/Payment_registerstyle.css' %}">
+</head>
+<body>
+    <div class="Event">
+        <header>
+            Update Venue
+        </header>
+        <form action="{% url 'Update_Venue' venue.id %}" method="POST">
+            {% csrf_token %}
+            <div class="title">
+                <span>Venue Details</span>
+            </div>
+            <div class="fields">
+                <div class="input-box">
+                    <label>Event Name:</label>
+                    <input type="text" name="Event_name" value="{{ venue.venue_event_name }}" required/>
+                </div>
+                <div class="input-box">
+                    <label>Event Type:</label>
+                    <input type="text" name="Event_type" value="{{ venue.event_type }}" required/>
+                </div>
+                <div class="input-box">
+                    <label>Event Address:</label>
+                    <input type="text" name="Event_address" value="{{ venue.event_address }}" required/>
+                </div>
+            </div>
+            <div class="button">
+                <button type="reset"  >Delete</button>
+                <button type="submit"  >Submit</button>
+               
+              <a   href="{% url 'Report_Venue' %}"> <button type="button"  >Back <i class="fa-solid fa-house"></i></button></b1></a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

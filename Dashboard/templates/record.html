@@ -21,20 +21,32 @@
         </div>
         <div class="card-body">
           
+            <br>
+            <br>
             <p class="card-text">
             <strong>  Customer Id : </strong>{{   Customer_Record.id }}</p>
+            <br>
+        
 
             <p class="card-text">
             <strong> Customer Name  : </strong>{{  Customer_Record.cust_name }}</p>
+            <br>
+        
 
             <p class="card-text">
             <strong> Customer Email : </strong>{{  Customer_Record.cust_email}}</p>
+            <br>
+        
 
             <p class="card-text">
             <strong>Customer Contact No. : </strong>{{  Customer_Record.cust_phone_no }}</p>
+            <br>
+        
 
             <p class="card-text">
             <strong> Customer Address :  </strong>{{  Customer_Record.cust_address }}</p>
+            <br>
+            
 
            
         </p>
@@ -46,8 +58,12 @@
     <a href="{% url 'Report_Customer' %}" class=" btn btn-secondary"> Back </a>
 </br>
 </br>
-
-    <a href="{% url 'Delete_record' Customer_Record.id %}" class="btn btn-danger">Delete</a>
+    <button id="printButton" class="btn btn-primary">Print</button>
+    <script>
+    document.getElementById('printButton').addEventListener('click', function() {
+        window.print();
+    });
+    </script>
    
    
 </body>

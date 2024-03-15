@@ -33,10 +33,10 @@ urlpatterns = [
     path('Delete_Salary/<int:pk>', views.Delete_Salary, name="Delete_Salary"),
 
     path('Update_Event/<int:pk>', views.Update_Event, name="Update_Event"),
-    # path('Update_Venue/<int:pk>', views.Update_Venue, name="Update_Venue"),
+    path('Update_Venue/<int:pk>', views.Update_Venue, name="Update_Venue"),
      path('Update_Customer/<int:pk>', views.Update_Customer, name="Update_Customer"),
-    #  path('Update_Employees/<int:pk>', views.Update_Employees, name="Update_Employees"),
-    #  path('Update_Employees_salary/<int:pk>', views.Update_Employees_salary, name="Update_Employees_salary"),
+     path('Update_Employee/<int:pk>', views.Update_Employee, name="Update_Employee"),
+    path('Update_salary/<int:pk>', views.Update_salary, name="Update_salary"),
 
 
     # path('Employee_register/',views.Employee,name="Employee_register")

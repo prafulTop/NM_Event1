@@ -64,6 +64,8 @@
                 <th scope="col"> Event Type</th>
                 <th scope="col"> Event Address</th>
                 <th scope="col">ID</th>
+                <th scope="col">Action</th>
+                
               
                 
                
@@ -78,7 +80,10 @@
                         <td>{{ record3.event_type}}</td>
                         <td>{{ record3.event_address }}</td>
                         <td><a href="{% url 'Record_Venue' record3.id %}">{{ record3.id }}</a></td>
-                     
+                        <td> 
+                          <a href="{% url 'Update_Venue' record3.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> </a>
+                          <a href="{% url 'Delete_Venue' record3.id %}" class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
                        
                     </tr>
                 {% endfor %}

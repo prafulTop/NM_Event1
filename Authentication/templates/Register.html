@@ -12,15 +12,12 @@ initial-scale=1.0">
 </head>
     <body>
 <div class="container">
-    {% if error %}
-    {% for error in messages %}
+        
+        {% if error %}
         <div class="error-message">{{ error }}<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
-        {% endfor %}
         {% endif %}
-    
-    
-    
+
         {% if messages %}
         {% for message in messages %}
         <div class="success-message ">{{ message }}

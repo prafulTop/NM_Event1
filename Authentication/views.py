@@ -16,16 +16,22 @@ def user_login(request):
                 messages.success(request, 'Success! Login successfully!  ')
                 return redirect('home')
             else:
-                messages.error(request, " Oops! Invalid username or password")
+                messages.error(request, " Oops! Invalid  Username  or Password")
+                return render(request, 'login.html')
         else:
-            messages.error(request, " Oops! Username and password are required.")
+            messages.error(request, " Oops! Username and Password are required.")
     
     return render(request, 'login.html')
+
+
 
 def logout_user(request):
     logout(request)
     messages.success(request,"you have been logged out")
     return redirect('login')
+
+
+
 def register(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -44,7 +50,7 @@ def register(request):
         user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
         
         # Redirect to the login page after successful registration
-        messages.success(request, '  Success! user Register  successfully!  ')
+        messages.success(request, '  Success! User Register  successfully!  ')
         return redirect('login')
 
     return render(request, 'register.html')

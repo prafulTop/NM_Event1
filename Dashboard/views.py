@@ -22,6 +22,7 @@ def Event_register(request):
         name = request.POST.get('event_name')
         date = request.POST.get('event_date')
         time = request.POST.get('event_time')
+       
         location = request.POST.get('event_location')
         requirement = request.POST.get('event_requirement')
         themes = request.POST.get('event_themes')
@@ -35,6 +36,7 @@ def Event_register(request):
             name=name,
             date=date,
             time=time,
+           
             location=location,
             requirement=requirement,
             themes=themes
